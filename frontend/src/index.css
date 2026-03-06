@@ -107,6 +107,28 @@ body::before {
     radial-gradient(ellipse 50% 60% at 50% 0%, rgba(168, 85, 247, 0.04), transparent);
   pointer-events: none;
   z-index: 0;
+  animation: bg-drift 20s ease-in-out infinite;
+}
+
+@keyframes bg-drift {
+  0%, 100% {
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 20%, rgba(56, 189, 248, 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(129, 140, 248, 0.06), transparent),
+      radial-gradient(ellipse 50% 60% at 50% 0%, rgba(168, 85, 247, 0.04), transparent);
+  }
+  33% {
+    background:
+      radial-gradient(ellipse 70% 60% at 40% 30%, rgba(56, 189, 248, 0.1), transparent),
+      radial-gradient(ellipse 50% 50% at 70% 70%, rgba(129, 140, 248, 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 30% 60%, rgba(168, 85, 247, 0.05), transparent);
+  }
+  66% {
+    background:
+      radial-gradient(ellipse 90% 40% at 60% 10%, rgba(56, 189, 248, 0.06), transparent),
+      radial-gradient(ellipse 50% 60% at 20% 80%, rgba(129, 140, 248, 0.07), transparent),
+      radial-gradient(ellipse 70% 50% at 80% 30%, rgba(168, 85, 247, 0.06), transparent);
+  }
 }
 
 #root {
@@ -150,10 +172,11 @@ img {
 ::-webkit-scrollbar-thumb {
   background: rgba(148, 163, 184, 0.2);
   border-radius: var(--radius-full);
+  transition: background 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.35);
+  background: rgba(148, 163, 184, 0.4);
 }
 
 /* ─── Selection ──────────────────────────────────────── */
@@ -226,7 +249,7 @@ img {
 
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.1); }
-  50% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.25); }
 }
 
 @keyframes gradient-shift {
@@ -241,6 +264,16 @@ img {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(56, 189, 248, 0.2); }
+  50% { border-color: rgba(56, 189, 248, 0.5); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
 }
 
 /* ─── Utility Classes ────────────────────────────────── */
